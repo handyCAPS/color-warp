@@ -1,0 +1,26 @@
+<div
+  class="color-block"
+  *ngIf="color"
+  [style]="'background-color: ' + color.color + ';'"
+>
+  <div class="block-half">
+    <div class="label">{{ color.name }}</div>
+    <input class="input" name="color" [(ngModel)]="color.color" />
+  </div>
+  <div class="block-half">
+    <div class="color-var-line" *ngFor="let offset of color.offsets">
+      <div
+        class="label label-offset"
+        [style]="'background-color: ' + offset.value + ';'"
+      >
+        {{ offset.label }}
+      </div>
+      <div class="offset-value">{{ offset.value }}</div>
+      <div class="offsets">
+        <div class="offset" *ngFor="let set of offset.offsetArray">
+          {{ set }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
