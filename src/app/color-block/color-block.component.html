@@ -1,11 +1,11 @@
 <div
   class="color-block"
   *ngIf="color"
-  [style]="'background-color: ' + color.color + ';'"
+  [style]="'background-color: ' + backgroundColor + ';'"
 >
   <div class="block-half">
     <div class="label">{{ color.name }}</div>
-    <input class="input" name="color" [(ngModel)]="color.color" />
+    <form #colorForm="ngForm"><input class="input" name="color" [(ngModel)]="color.color" /></form>
   </div>
   <div class="block-half">
     <div class="color-var-line" *ngFor="let offset of color.offsets">

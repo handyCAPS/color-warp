@@ -30,37 +30,37 @@ export class AppComponent {
     {
       label: 'Dark-1',
       value: 'hsl(90, 50%, 50%)',
-      offsetArray: [0, -10, -20],
+      offsetArray: [0, 0, -5],
     },
     {
       label: 'Dark-2',
       value: '',
-      offsetArray: [0, -10, -20],
+      offsetArray: [0, -1, -10],
     },
     {
       label: 'Dark-3',
       value: '',
-      offsetArray: [0, -10, -20],
+      offsetArray: [0, -1, -27],
     },
     {
       label: 'Dark-4',
       value: '',
-      offsetArray: [0, -10, -20],
+      offsetArray: [0, 0, -40],
     },
-    {
-      label: 'Dark-5',
-      value: '',
-      offsetArray: [0, -10, -20],
-    },
+    // {
+    //   label: 'Dark-5',
+    //   value: '',
+    //   offsetArray: [0, -10, -20],
+    // },
     {
       label: 'Light-1',
       value: '',
-      offsetArray: [0, -10, -20],
+      offsetArray: [0, 2, 20],
     },
     {
       label: 'Light-2',
       value: '',
-      offsetArray: [0, -10, -20],
+      offsetArray: [0, 5, 30],
     },
   ];
 
@@ -81,7 +81,7 @@ export class AppComponent {
     for (const key in this.colorBlocks) {
       this.colorBlocks[key] = {
         ...this.colorBlocks[key],
-        offsets: this.offsets,
+        offsets: [...this.offsets].map((offset) => ({ ...offset })),
       };
     }
   }

@@ -53,7 +53,7 @@ export class ColorService {
     return 'hsl(' + h + ',' + s + '%,' + l + '%)';
   }
 
-  getHslFromOffset(color: string, offsets: ColorOffset['offsetArray']): string {
+  getHslFromOffset(color: string, offsets: ColorOffset['offsetArray'], dark?: Boolean): string {
     const hslColor = this.hexToHSL(color);
     const colorPartials = hslColor
       .replace(/[^0-9,]/g, '')
@@ -82,7 +82,6 @@ export class ColorService {
         }
         return partialNumber;
       });
-    console.log('colorPartials', colorPartials);
 
     return `hsl(${colorPartials[0]},${colorPartials[1]}%,${colorPartials[2]}%)`;
   }
