@@ -29,23 +29,23 @@ export class AppComponent {
   offsets: ColorOffset[] = [
     {
       label: 'Dark-1',
-      value: 'hsl(90, 50%, 50%)',
+      value: '',
       offsetArray: [0, 0, -5],
     },
     {
       label: 'Dark-2',
       value: '',
-      offsetArray: [0, -1, -10],
+      offsetArray: [0, 1, -10],
     },
     {
       label: 'Dark-3',
       value: '',
-      offsetArray: [0, -1, -27],
+      offsetArray: [0, 1, -17],
     },
     {
       label: 'Dark-4',
       value: '',
-      offsetArray: [0, 0, -40],
+      offsetArray: [-1, 0, -30],
     },
     // {
     //   label: 'Dark-5',
@@ -55,23 +55,23 @@ export class AppComponent {
     {
       label: 'Light-1',
       value: '',
-      offsetArray: [0, 2, 20],
+      offsetArray: [-1, 19, 20],
     },
     {
       label: 'Light-2',
       value: '',
-      offsetArray: [0, 5, 30],
+      offsetArray: [-1, 0, 40],
     },
   ];
 
   colorBlocks: ColorBlock[] = [
     {
-      color: '#5EBA7D',
+      color: '#337ab7',
       name: 'Primary',
       offsets: [],
     },
     {
-      color: '#F3FA1D',
+      color: '#5bc0de',
       name: 'Info',
       offsets: [],
     },
