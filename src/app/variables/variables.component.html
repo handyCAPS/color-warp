@@ -1,0 +1,21 @@
+<div class="variables">
+  <div class="prefix-selector">
+    <span class="prefix-label">Prefix</span
+    > --<input #prefixInput class="prefix-input" type="text" name="prefix" [(ngModel)]="prefix" [ngStyle]="{
+      width: prefixInput.value.length * 0.75 + 'em'
+    }"/>
+  </div>
+  <div class="color-block">
+    <div class="color-line" *ngFor="let color of colorBlocks">
+      <div class="color-name">/* {{ color.name }} */</div>
+      <div class="color-line">
+        {{ getColorLine(color.name, "", color.color | hexToHsl) }}
+      </div>
+      <div class="color-code" *ngFor="let offset of color.offsets">
+        <div class="color-line">
+          {{ getColorLine(color.name, offset.label, offset.value) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

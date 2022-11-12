@@ -1,10 +1,15 @@
 <div class="main-page">
   <header><h1>Color Warp</h1></header>
-  <main class="blocks">
-    <cpx-color-block
-      *ngFor="let color of colorBlocks"
-      [color]="color"
-      class="block"
-    ></cpx-color-block>
+  <main class="main">
+    <div class="blocks">
+      <cpx-color-block
+        *ngFor="let color of colorBlocks"
+        [color]="color"
+        class="block"
+      ></cpx-color-block>
+      <div class="results">
+        <cpx-variables [colorBlocks]="colorBlocks"></cpx-variables>
+      </div>
+    </div>
   </main>
 </div>
