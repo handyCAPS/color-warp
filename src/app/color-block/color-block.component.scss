@@ -18,7 +18,12 @@
   align-items: center;
   justify-content: flex-end;
   margin-right: 1em;
+  padding-right: 0.618em;
   height: 100%;
+
+  &.dark {
+    color: white
+  }
 }
 
 .color-var-line {

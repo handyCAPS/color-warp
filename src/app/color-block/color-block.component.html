@@ -12,6 +12,9 @@
       <div
         class="label label-offset"
         [style]="'background-color: ' + offset.value + ';'"
+        [ngClass]="{
+          dark: shouldHaveClassDark(offset.value)
+        }"
       >
         {{ offset.label }}
       </div>

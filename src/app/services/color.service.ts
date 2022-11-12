@@ -83,6 +83,14 @@ export class ColorService {
         return partialNumber;
       });
 
-    return `hsl(${colorPartials[0]},${colorPartials[1]}%,${colorPartials[2]}%)`;
+    return `hsl(${colorPartials[0]}, ${colorPartials[1]}%, ${colorPartials[2]}%)`;
+  }
+
+  getLightnessFromHsl(hslColor: string): number {
+    const colorPartials = hslColor
+      .replace(/[^0-9,]/g, '')
+      .split(',');
+
+    return parseInt(colorPartials[2]);
   }
 }

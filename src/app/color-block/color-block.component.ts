@@ -57,4 +57,8 @@ export class ColorBlockComponent implements OnInit, AfterViewInit {
       })),
     ];
   }
+
+  shouldHaveClassDark(color: string): boolean {
+    return this.colorService.getLightnessFromHsl(color) < 30;
+  }
 }
