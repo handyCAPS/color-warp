@@ -127,10 +127,17 @@ export class ColorService {
         let partialNumber = parseInt(partial);
         switch (index) {
           case 0:
-            partialNumber = Math.max(
+            const newNumber = Math.max(
               0,
               Math.min(partialNumber + offsets[index], 360)
             );
+            if (newNumber === 360) {
+              partialNumber = partialNumber + offsets[index] - 360;
+            } else if (newNumber === 0) {
+              partialNumber = 360 - (partialNumber + offsets[index]);
+            } else {
+              partialNumber = newNumber;
+            }
             break;
           case 1:
             partialNumber = Math.max(
