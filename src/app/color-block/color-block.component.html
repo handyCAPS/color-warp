@@ -5,7 +5,8 @@
 >
   <div class="block-half">
     <div class="label">{{ color.name }}</div>
-    <form #colorForm="ngForm"><input class="input" name="color" [(ngModel)]="color.color" /></form>
+    <form #colorForm="ngForm"><input class="color-input" name="color" [(ngModel)]="color.color" /></form>
+    <div class="color-hsl">{{ color.color | hexToHsl }}</div>
   </div>
   <div class="block-half">
     <div class="color-var-line" *ngFor="let offset of color.offsets">

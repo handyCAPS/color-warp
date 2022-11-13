@@ -99,6 +99,21 @@ export class ColorService {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
   }
 
+  rgbToHex(rgbColor: string): string {
+    let rgbArray = rgbColor.replace(/[rgb()]/g, '').split(',');
+
+    const red = parseInt(rgbArray[0], 10).toString(16);
+    const green = parseInt(rgbArray[1], 10).toString(16);
+    const blue = parseInt(rgbArray[2], 10).toString(16);
+
+    return `#${red}${green}${blue}`;
+  }
+
+  hslToHex(hslColor: string): string {
+    const rgbColor = this.hslToRgb(hslColor);
+    return this.rgbToHex(rgbColor);
+  }
+
   getHslFromOffset(
     color: string,
     offsets: ColorOffset['offsetArray'],

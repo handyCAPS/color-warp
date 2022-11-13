@@ -1,15 +1,51 @@
 <div class="variables">
   <div class="prefix-selector">
-    <span class="prefix-label">Prefix</span
-    > --<input #prefixInput class="prefix-input" type="text" name="prefix" [(ngModel)]="prefix" [ngStyle]="{
-      width: prefixInput.value.length * 0.75 + 'em'
-    }"/>
+    <span class="prefix-label">Prefix</span> --<input
+      #prefixInput
+      class="prefix-input"
+      type="text"
+      name="prefix"
+      [(ngModel)]="prefix"
+      [ngStyle]="{
+        width: prefixInput.value.length * 0.75 + 'em'
+      }"
+    />
+  </div>
+  <div class="system-switch">
+    <!-- <button class="system-switch-button" (click)="asRgb = !asRgb">
+      {{ asRgb ? "HSL" : "RGB" }}
+    </button> -->
+    <label class="system-label" for="hsl"
+      >HSL<input
+        type="radio"
+        class="system-radio"
+        name="systemSwitch"
+        value="hsl"
+        id="hsl"
+        [(ngModel)]="colorSystem" /></label
+    ><label class="system-label" for="rgb"
+      >RGB<input
+        type="radio"
+        class="system-radio"
+        name="systemSwitch"
+        value="rgb"
+        id="rgb"
+        [(ngModel)]="colorSystem" /></label
+    ><label class="system-label" for="hex"
+      >HEX<input
+        type="radio"
+        class="system-radio"
+        name="systemSwitch"
+        value="hex"
+        id="hex"
+        [(ngModel)]="colorSystem"
+    /></label>
   </div>
   <div class="color-block">
     <div class="color-line" *ngFor="let color of colorBlocks">
       <div class="color-name">/* {{ color.name }} */</div>
       <div class="color-line">
-        {{ getColorLine(color.name, "", color.color | hexToHsl) }}
+        {{ getColorLine(color.name, "", color.color, true) }}
       </div>
       <div class="color-code" *ngFor="let offset of color.offsets">
         <div class="color-line">

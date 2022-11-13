@@ -13,6 +13,20 @@
   margin-bottom: 0.618em;
 }
 
+.color-input {
+  width: 100%;
+}
+
+.color-hsl {
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.618em;
+}
+
+.color-input,
+.color-hsl {
+  padding: 0.3em 0.6em;
+}
+
 .label-offset {
   display: flex;
   align-items: center;
@@ -22,7 +36,7 @@
   height: 100%;
 
   &.dark {
-    color: white
+    color: white;
   }
 }
 

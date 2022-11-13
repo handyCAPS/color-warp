@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ColorBlock } from '../app.component';
+import { ColorService } from '../services/color.service';
 
 @Component({
   selector: 'cpx-variables',
@@ -11,14 +12,35 @@ export class VariablesComponent implements OnInit {
 
   prefix = 'c';
 
-  constructor() {}
+  asRgb = false;
+
+  colorSystem: 'hsl' | 'hex' | 'rgb' = 'hsl';
+
+  constructor(private colorService: ColorService) {}
 
   ngOnInit(): void {}
 
-  getColorLine(colorName: string, offsetName: string, color: string): string {
+  getColorLine(
+    colorName: string,
+    offsetName: string,
+    color: string,
+    isHex?: boolean
+  ): string {
+    if (isHex) {
+      color = this.colorService.hexToHSL(color);
+    }
+    switch(this.colorSystem) {
+      case 'hex':
+        color = this.colorService.hslToHex(color);
+        break;
+      case 'rgb':
+        color = this.colorService.hslToRgb(color);
+        break;
+    }
+    const offsetSeperator = offsetName ? '-' : '';
     return `${this.fixPrefix(
       this.prefix
-    )}-${colorName}-${offsetName}: ${color};`.toLowerCase();
+    )}-${colorName}${offsetSeperator}${offsetName}: ${color};`.toLowerCase();
   }
 
   fixPrefix(value: string): string {
